@@ -16,6 +16,9 @@ const testimonials = [
     }
 ]
 
+const imgEl = document.querySelector(".testimonial-photo");
+const textEl = document.querySelector(".testimonial-text");
+
 let idx = 0;
 
 function updateTestimonial(){
