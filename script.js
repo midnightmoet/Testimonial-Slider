@@ -18,12 +18,23 @@ const testimonials = [
 
 const imgEl = document.querySelector(".testimonial-photo");
 const textEl = document.querySelector(".testimonial-text");
+const usernameEl = document.querySelector(".testimonial-name");
 
 let idx = 0;
 
-function updateTestimonial(){
-    const { name, photoUrl, text } = testimonials[idx];
-    document.getElementById("testimonial-text").innerText = text;
-    document.getElementById("testimonial-photo").src = photoUrl;
-    document.getElementById("testimonial-name").innerText = name;
+updateTestimonial();
+
+function updateTestimonial() {
+    const { name,photoUrl,text } = testimonials[idx];
+    imgEl.src = photoUrl;
+    textEl.innerHTML = text;
+    usernameEl.innerHTML = name;
+    idx++;
+
+    if (idx === testimonials.length) {
+        idx = 0;
+    }
+    setTimeout(() => {
+        updateTestimonial();
+    }, 10000);
 }
